@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import "header-footer.css";
+
+* {
+    box-sizing: border-box;
+}
+a,
+h1,
+h2,
+h3,
+p,
+li,
+span,
+button {
+    font-family: 'Anton', sans-serif;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+input[type="checkbox"] {
+    display: none;
+}
+#wrapper {
+    margin-bottom: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    transition: 1s all ease;
+}
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 20px;
+}
+h3 {
+    color: #676e68;
+    font-size: 16px;
+    font-weight: 300;
+}
+p, input, li, span {
+    font-size: 12px;
+}
+input {
+    outline: none;
+}
+#wrapper svg {
+    color: #676e68;
+}
+/* hover */
+a:hover,
+.header svg:hover,
+.header span:hover,
+.subMenu > li,
+.navBar li:hover,
+.nvt-container svg:hover,
+.pdt-nvt-container button:hover,
+.svg-pdt-container:hover, 
+#wrapper svg:hover,
+.gridFooter li:hover {
+    color: #5D8861;
+    cursor: pointer;
+    transition: .5s;
+}
+.reveal {
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}

@@ -1,0 +1,312 @@
+@import "main.css";
+
+/* header */
+.header span {
+    font-size: 20px;
+}
+.header {
+    align-items: center;
+    background-color: none;
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    width: 100%;
+}
+.logoBox {
+    display: flex;
+}
+.iconsHeader {
+    right: 20px;
+    top: 70px;
+    position: absolute;
+}
+header svg {
+    color: #9D8C86;
+    height: 30px;
+    margin: 10px;
+    width: 30px;
+}
+
+/* menu top left */ 
+label[for="ham-menu"] {
+    background-color: none;
+    border-radius: 15px;
+    display: block;
+    height: 60px;
+    left: 20px;
+    position: absolute;
+    width: 60px;
+    z-index: 999;
+}
+label:hover {
+    background-color: #dddddd;
+    cursor: pointer;
+}
+.ham-menu {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    left: 0;
+    justify-content: center;
+    transform: translate(-100%);
+    transition: .5s;
+    top: 0;
+    position: fixed;
+    visibility: hidden;
+}
+#ham-menu:checked + label {
+    background-color: transparent;
+    border-color: #5D8861;
+}
+#ham-menu:checked ~ div.ham-menu {
+    transform: translate(0px);
+    visibility: visible;
+}
+.ham-menu > ul {
+    height: 50%;
+}
+.ham-menu > ul > li {
+    letter-spacing: 0.15em;
+}
+.full-page-green {
+    background-color: hsl(126deg 19% 70%);
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    transition: .5s;
+    top: 0;
+    position: fixed;
+    visibility: hidden;
+    width: 300px;
+}
+#ham-menu:checked ~ div.full-page-green {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+[for="ham-menu"] > div {
+    align-content: center;
+    align-items: center;    
+    display: flex;
+    flex-flow: column wrap;
+    height: 100%;
+    width: 100%;
+}
+.menu-line {
+    background-color: #9D8C86;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    display: block;
+    height: 2px;
+    margin: 10px 0 5px;
+    transition: .5s;
+    transform-origin: right center;
+    width: 17px;
+}
+[for="ham-menu"] > div > span:nth-child(4),
+[for="ham-menu"] > div > span:nth-child(5),
+[for="ham-menu"] > div > span:nth-child(6) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    transform-origin: left center;
+}
+#ham-menu:checked + label span:nth-child(2),
+#ham-menu:checked + label span:nth-child(5) {
+    transform: scale(0);
+}
+#ham-menu:checked + label span:nth-child(1) {
+    transform: translateY(17px) rotate(45deg);
+}
+#ham-menu:checked + label span:nth-child(4) {
+    transform: translateY(17px) rotate(-45deg);
+}
+#ham-menu:checked + label span:nth-child(3) {
+    transform: translateY(-17px) rotate(-45deg);
+}
+#ham-menu:checked + label span:nth-child(6) {
+    transform: translateY(-17px) rotate(45deg);
+}
+.subMenu {
+    display: none;
+    list-style: none;
+    left: 0;
+    margin: 0;
+    padding: 5px;
+    width: 250px;
+}
+.with-subMenu {
+    position: relative;
+}
+.with-subMenu,
+.with-subMenu:hover .subMenu {
+    display: block;
+}
+.subMenu > li {
+    background: transparent;
+    display: flex;
+    font-size: 12px;
+    padding: 2px;
+    transition: .5s;
+}
+.subMenu:hover {
+    color: red;
+}
+.subMenu {
+    display: none;
+    list-style: none;
+    width: 60px;
+}
+.header span,
+.subMenu li {
+    color: #676e68;
+}
+
+/* navbar bottom header */ 
+.topNav {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+.dropDown {
+    float: left;
+    overflow: hidden;
+    width: fit-content;
+}
+.dropDown .dropBtn {
+    background-color: transparent;
+    border: none;
+    color: black;    
+    outline: none;
+}
+.dropDownContent {
+    background-color: hsl(126deg 19% 70%);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: none;
+    position: absolute;
+    width: 220px;
+    z-index: 1;
+}
+.dropDownContent a {
+    color: black;    
+    display: block;
+    font-size: 14px;
+    float: none;
+    padding: 10px 15px;    
+    text-align: center;
+    text-decoration: none;
+}
+.dropDown:hover .dropBtn {
+    background-color: hsl(126deg 19% 70%);
+    color: black;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.topNav a:hover {
+    color: #5D8861;
+}
+.dropDown:hover .dropDownContent {
+    display: block;
+}
+
+@media (min-width: 950px) {
+    .header img {
+        height: 200px;
+        justify-content: center;
+    }
+    label[for="ham-menu"] {
+        top: 70px;
+    }
+    .dropDown .dropBtn {    
+        font-size: 16px; 
+        padding: 15px;
+        width: 220px;
+    }
+    
+}
+@media (max-width: 950px) {
+    .header img {
+        height: 180px;
+        justify-content: center;
+    }
+    .iconsHeader {
+        left: 30px;
+        top: 120px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+    }
+    label[for="ham-menu"] {
+        top: 60px;
+    }
+    .dropDown .dropBtn {   
+        font-size: 14px; 
+        padding: 5px;
+        width: 80px;
+    }
+}
+@media (max-width: 600px) {
+    .header img {
+        height: 120px;
+        justify-content: center;
+    }
+    .iconsHeader {
+        top: 90px;
+    }
+    label[for="ham-menu"] {
+        top: 40px;
+    }
+    .full-page-green {
+        width: 100%;
+    }
+    .dropDown .dropBtn {   
+        font-size: 10px; 
+        width: 60px;
+    }
+}
+
+
+/* footer */
+footer {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.gridFooter {
+    border-top: 2px solid #5D8861;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 10px;
+}
+.gridFooter li {
+    list-style-type: circle;
+    font-size: 12px;
+    text-align: left;
+}
+.gridFooter svg {
+    padding: 5px;
+}
+input {
+    border: none;
+    border-bottom: 1px solid black;
+    color: #676e68;
+    outline: none;
+}
+input:hover {
+    border-bottom: 1px solid #5D8861;
+    cursor: pointer;
+    color: black;
+    transition: .5s;
+}
+.gridFooter h3 {
+    text-align: left;
+}
+

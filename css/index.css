@@ -1,0 +1,131 @@
+@import "main.css";
+
+.main-containers {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+/* nouveautés */
+.title-nvt {
+    letter-spacing: .5em;
+    text-align: center;
+}
+.background-container {
+    background: hsl(126deg 19% 94%);
+    border-radius: 10px;
+    height: fit-content;
+    padding: 20px;
+}
+.background-container:hover {
+    background: hsl(126deg 19% 93%);
+}
+.nvt-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+}
+.pdt-mmt-title,
+.rct-mmt-title {
+    padding-bottom: 10px;
+    text-align: center;
+}
+.borderBTitle {
+    border-bottom: 1px solid #676e68;
+    width: 100%;
+}
+.pdt-nvt-container p {
+    font-style: italic;
+    font-size: 12px;
+    text-align: justify;
+}
+.pdt-nvt-container {
+    display: flex;
+}
+.pdt-nvt-container {
+    display: flex;
+    padding: 20px;
+    text-align: center;
+}
+.pdt-nvt-container button,
+.cols-container button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    float: right;
+    font-size: 10px;
+    position: relative;
+    top: -10px;
+    left: 20px;
+    width: 100px;
+}
+.under-pdt {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 75% 20% 5%;
+    gap: 15%;
+    padding-top: 20px;
+}
+.price {
+    display: flex;
+}
+.under-pdt p {
+    font-size: 12px;
+    font-style: normal;
+}
+.svg-pdt-container {
+    display: flex;
+}
+
+/* produits et recettes du moment */
+.mmt-container {
+    background: hsl(16deg 11% 94%);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 48% 4% 48%;
+    justify-content: center;
+    padding: 20px;
+}
+.mmt-container:hover {
+    background: hsl(16deg 11% 93%);
+    transition: .5s;
+}
+.cols-container p {
+    font-size: 10px;
+    text-align: justify;
+}
+.cols-container {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.mmt-col1 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.mmt-col2 {
+    align-items: center;
+    display: flex;
+    height: 200px;
+    text-align: justify;
+}
+.mmt-col3-grid {
+    align-items: center;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    height: 100%;
+    padding: 10px;
+}
+.mmt-cols-top,
+.mmt-cols3-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+.mmt-cols3-bottom {
+    flex-direction: row;
+    gap: 10px;
+}
+.mmt-cols3-bottom img {
+    height: 30px;
+    width: 30px;
+}
