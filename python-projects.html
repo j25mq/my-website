@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Julie Miquelard</title>
+        <link href="img/logo-nb.png" rel="icon">
+        <link href="css/python-projects.css" rel="stylesheet">
+    </head>
+    <header>
+        <a href="index.html">
+            <img src="img/logo(2.1).png" alt="logo">
+            <h1>Julie Miquelard</h1>
+        </a>
+        <h2>Python projects</h2>
+        <div class="dwnlFiles">
+            <a href="https://github.com/j25mq/udacity-projects/blob/main/rps.py" target="_blank">Github link for Rock Paper Scissors Game</a>
+            <a href="https://github.com/j25mq/udacity-projects/blob/main/adventure_game.py" target="_blank">Github link for Adventure Game</a>
+        </div>
+    </header>
+    <body>
+        <div id="wrapper">
+            <div class="projectsContent">
+                <div class="tabs">
+                    <div class="tab">
+                        <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                        <label for="tab-1" class="tab-label">
+                            Rock Paper Scissors Game
+                            <a href="projects/py/rps.py" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                            </a>
+                        </label>
+                        <div class="tab-content">
+                            <pre>
+import random
+
+moves = ["rock", "paper", "scissors"]
+
+
+class Player():
+    my_move = random.choice(moves)
+    their_move = random.choice(moves)
+
+    def move(self):
+        pass
+
+    def learn(self, my_move, their_move):
+        self.my_move = my_move
+        self.their_move = their_move
+
+
+class CyclePlayer(Player):
+    def move(self):
+        index = 0
+        moves = index
+        if self.my_move == "rock":
+            index += 1
+            return "paper"
+        elif self.my_move == "paper":
+            index += 1
+            return "scissors"
+        else:
+            index += 1
+            return "rock"
+
+    def learn(self, my_move, their_move):
+        self.my_move = my_move
+
+
+class RandomPlayer(Player):
+    def move(self):
+        return random.choice(moves)
+
+    def learn(self, my_move, their_move):
+        pass
+
+
+class ReflectPlayer(Player):
+    def move(self):
+        return self.their_move
+
+    def learn(self, my_move, their_move):
+        self.their_move = their_move
+
+
+class RockPlayer(Player):
+    def move(self):
+        return "rock"
+
+    def learn(self, my_move, their_move):
+        pass
+
+
+class HumanPlayer(Player):
+    def move(self):
+        move1 = 0
+        move1 = input("Rock, paper, scissors? > ").lower()
+        if move1 == "rock" or move1 == "paper" or move1 == "scissors":
+            return move1
+        else:
+            print("Try again.")
+            return self.move()
+
+
+class Game:
+    score_p1 = 0
+    score_p2 = 0
+
+    def __init__(self, p1, p2):
+        self.p1 = p1
+        self.p2 = p2
+
+    def play_round(self):
+        move1 = self.p1.move()
+        move2 = self.p2.move()
+        print(f"You played {move1}. Opponent played: {move2}.")
+        if move1 == move2:
+            print("TIE.")
+        elif beats(move1, move2):
+            print(f"{self.p1} won!")
+            self.score_p1 += 1
+        else:
+            print(f"{self.p2} won!")
+            self.score_p2 += 1
+        self.p1.learn(move1, move2)
+        self.p2.learn(move2, move1)
+        print("-----------------------------")
+        print("Current scores of this round:")
+        print(f"Player 1 (you): {game.score_p1}")
+        print(f"Player 2 (Opponent): {game.score_p2}")
+        print("-----------------------------")
+
+    def play_game(self):
+        print("Game start!")
+        print("-----------")
+        for round in range(1, 9):
+            print(f"Round {round}:")
+            self.play_round()
+        count_result()
+        print("Game over!")
+
+
+def beats(move1, move2):
+    return ((move1 == 'rock' and move2 == 'scissors') or
+            (move1 == 'scissors' and move2 == 'paper') or
+            (move1 == 'paper' and move2 == 'rock'))
+
+
+def count_result():
+    print("Here are the final scores:")
+    print(f"Player 1 (you): {game.score_p1}")
+    print(f"Player 2 (Opponent): {game.score_p2}")
+    if game.score_p1 > game.score_p2:
+        print("You won.")
+    elif game.score_p1 < game.score_p2:
+        print("Opponent won.")
+    else:
+        print("Equal scores. TIE.")
+    game_over()
+
+
+def learn(self, my_move, their_move):
+    their_move = Rocklayer.move, RandomPlayer.move, HumanPlayer.move
+
+
+def game_over():
+    print("-------------------------------------")
+    gameover = input("Would you like to play again? (y/n) > ")
+    if gameover == "y":
+        game.score_p1 = 0
+        game.score_p2 = 0
+        print("Starting a new game...")
+        game.play_game()
+    elif gameover == "n":
+        print("Leaving the game...")
+    else:
+        game_over()
+
+
+if __name__ == '__main__':
+    players = [CyclePlayer(),  RandomPlayer(), ReflectPlayer(), RockPlayer()]
+    p1 = HumanPlayer()
+    p2 = random.choice(players)
+    game = Game(p1, p2)
+    game.play_game()
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+                        <label for="tab-2" class="tab-label">
+                            Adventure Game
+                            <a href="projects/py/adventure_game.py" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                            </a>
+                        </label>
+                        <div class="tab-content">
+                            <pre>
+import random
+import time
+
+
+def print_pause(message_to_print, delay=1):
+    print(message_to_print)
+    time.sleep(delay)
+
+
+def intro(monster):
+    print_pause("You find yourself standing in an open field, "
+                "filled with grass and yellow wildflowers.")
+    print_pause("Rumor has it that a " + monster + " is "
+                "somewhere around here, and has been "
+                "terrifying the nearby village.")
+    print_pause("In front of you is a house.")
+    print_pause("To your right is a dark cave.")
+    print_pause("In your hand you hold your trusty "
+                "(but not very effective) dagger.")
+
+
+def choice(monster, weapon, weapons_list):
+    print_pause("Enter 1 to knock on the door of the house.\n"
+                "Enter 2 to peer into the cave.")
+    while True:
+        try:
+            choice = int(input("What would you like to do?\n"
+                            "(Please enter 1 or 2).\n"))
+        except ValueError:
+            print("Try again.")
+            continue
+        else:
+            if choice == 1:
+                house(monster, weapon, weapons_list)
+            elif choice == 2:
+                cave(monster, weapon, weapons_list)
+
+
+def cave(monster, weapon, weapons_list):
+    print_pause("You peer cautiously into the cave.")
+    print_pause("It turns out to be only a very small cave.")
+    print_pause("Your eye catches a glint of metal behind a rock.")
+    print_pause("You have found something better to "
+                "defend yourself: a " + weapon + "!")
+    print_pause("You discard your silly old dagger and "
+                "take the " + weapon + " with you.")
+    print_pause("You walk back out to the field.")
+    weapons_list.append(weapon)
+    choice(monster, weapon, weapons_list)
+
+
+def house(monster, weapon, weapons_list):
+    while True:
+        try:
+            choice = int(input("Would you like to fight (1) or run away (2)?\n"))
+        except ValueError:
+            print("Try again.")
+            continue
+        else:
+            if choice == 1:
+                fight(monster, weapon, weapons_list)
+            elif choice == 2:
+                field(monster, weapon, weapons_list)
+
+
+def field(monster, weapon, weapons_list):
+    print_pause("You run back into the field. "
+                "Luckily, you don't seem to have been followed.")
+    choice(monster, weapon, weapons_list)
+
+
+def fight(monster, weapon, weapons_list):
+    if weapon in weapons_list:
+        print_pause("As the " + monster + " moves to attack, "
+                    "you unsheath your new " + weapon + ".")
+        print_pause("The " + weapon + " " + "shines brightly in your "
+                    "hand as you brace yourself for the attack.")
+        print_pause("But the " + monster + " takes one look at your "
+                    "shiny new toy and runs away!")
+        print_pause("You have rid the town of the " + weapon + ".")
+        print_pause("YOU WON.")
+        play_again(monster, weapon, weapons_list)
+    elif weapon not in weapons_list:
+        print_pause("You approach the door of the house.")
+        print_pause("You are about to knock when the door opens "
+                    "and out steps a " + monster + ".")
+        print_pause("Eep! This is the " + monster + "'s house!")
+        print_pause("The " + monster + " attacks you!")
+        print_pause("You feel a bit under-prepared for this; "
+                    "with only having a tiny dagger.")
+        print_pause("You do your best...")
+        print_pause("but your dagger is no match for the " + monster + ".")
+        print_pause("You have been defeated!")
+        print_pause("GAME OVER.")
+        play_again(monster, weapon, weapons_list)
+
+
+def play_again(monster, weapon, weapons_list):
+    while True:
+        try:
+            choice = input("Would you like to play again? (y/n)\n")
+        except ValueError:
+            print("Try again.")
+            continue
+        else:
+            if choice == "y":
+                print_pause("Excellent! Restarting the game...\n")
+                play_game()
+            elif choice == "n":
+                print("You are leaving the game...\n")
+                exit()
+
+
+def play_game():
+    monster = random.choice(["zombie", "vampire", "goblin",
+                            "chimera", "werewolf"])
+    weapon = random.choice(["sword", "bow", "hammer", "axe", "magic wand"])
+    weapons_list = []
+    intro(monster, weapon, weapons_list)
+    choice(monster, weapon, weapons_list)
+
+
+play_game()
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+        

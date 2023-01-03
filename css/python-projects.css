@@ -1,0 +1,74 @@
+@import 'main.css';
+
+/* header */ 
+.dwnlFiles {
+    display: flex;
+    flex-direction: column;
+}
+
+/* python projects tabs */
+.tabs {
+    background: black;
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+}
+.tabs::before,
+.tabs::after {
+    border-radius: 5px;
+    content: "";
+    display: table;
+}
+.tabs::after {
+    clear: both;
+}
+.tab {
+    border-radius: 5px;
+    float: left;
+}
+.tab-switch {
+    display: none;
+}
+.tab-label {
+    background: hsl(0deg 0% 1%);
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    line-height: 3em;
+    height: 3em;
+    padding: 0 2em;
+    transition: all .5s;
+    top: 0;
+    width: 100%;
+}
+.tab-label:hover {
+    transition: top .5s;
+}
+.tab-content {
+    background: hsl(0deg 0% 1%);   
+    border-radius: 5px;
+    border-right: 2px solid #08445c;
+    border-bottom: 2px solid #08445c;
+    color: #fff;
+    left: 0; 
+    height: fit-content;
+    transition: all .5s;
+    padding: 50px;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    width: 100%;
+}
+.tab-switch:checked + .tab-label {
+    background: #08445c;
+    border-bottom: 0;
+    color: #fff;
+    transition: all .5s;
+    z-index: 1;
+}
+.tab-switch:checked + label + .tab-content {
+    transition: all .5s;
+    z-index: 2;
+    opacity: 1;
+}

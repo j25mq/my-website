@@ -1,0 +1,95 @@
+@import 'main.css';
+
+img {
+    height: 100%;
+    width: 100%;
+}
+h3 {
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+/* pages, components, foundations, features */
+.designSystemBox {
+    display: flex;
+    justify-content: center;
+}
+.designSystemItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+.designSystemItems li {
+    list-style-type: disc;
+    list-style-position: outside;
+}
+.colorDesignSystem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.whiteCircle,
+.orange1Circle,
+.orange2Circle,
+.blueCircle {
+    border-radius: 180px;
+    height: 200px;
+    width: 200px;
+}
+.whiteCircle {
+    background-color: white;
+}
+.orange1Circle {
+    background-color: #FF5C00;
+}
+.orange2Circle {
+    background: linear-gradient(111.6deg, #FF5C00 25.34%, #EE7402 71.64%), #EE7402;
+}
+.blueCircle {
+    background: linear-gradient(180deg, #0A2236 0%, #266093 100%);
+}
+button {
+    background-color: #bdbdbd;
+    border: 1px solid #bdbdbd;
+    color: black;
+    height: 45px;
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase;
+    width: 180px;
+}
+button:hover {
+    background-color: #8f9ab9;
+    border: 1px solid #8f9ab9;
+    color: black;
+    cursor: pointer;
+    transition: .5s;
+}
+@media(min-width: 801px) {
+    .imgBox {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .colorCircles {
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 40px;
+    }
+}
+@media (max-width: 800px) {
+    .imgBox {
+        display: flex;
+        flex-direction: column;
+    }
+    .colorCircles {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+}
